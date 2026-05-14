@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -482,7 +482,7 @@
       <section id="contact" class="reveal">
         <div class="contact">
           <p class="eyebrow">Contact</p>
-          <h2>Have a game idea? Let’s turn it into a prototype.</h2>
+          <h2>Have a game idea? Let's turn it into a prototype.</h2>
           <p>I'm available for indie games, mobile projects, simulations, and Unity gameplay optimization work.</p>
           <div class="actions" style="justify-content:center">
             <a class="btn btn-primary" href="mailto:nguyenhuubang3172.work@gmail.com"><span class="icon" aria-hidden="true">✉️</span> nguyenhuubang3172.work@gmail.com</a>
@@ -634,62 +634,6 @@
         }
       }
     })();
-
-    (function runStaticPageTests() {
-      var tests = [
-        [document.title.indexOf("Unity Developer Portfolio") !== -1, "Title must contain Unity Developer Portfolio"],
-        [document.querySelectorAll(".project-card").length === 3, "Must contain exactly 3 project cards"],
-        [document.querySelectorAll(".skill-card").length >= 6, "Must contain at least 6 skill cards"],
-        [Boolean(document.querySelector('a[href^="mailto:"]')), "Must contain an email link"],
-        [Boolean(document.querySelector('meta[name="viewport"]')), "Must contain mobile viewport meta"],
-        [document.querySelectorAll("script[src]").length === 0, "Must not load external scripts"],
-        [document.querySelectorAll("link[rel='stylesheet']").length === 0, "Must not load external CSS"],
-        [document.querySelectorAll(".reveal").length >= 5, "Must include reveal animations for sections"],
-        [Boolean(document.querySelector(".back-to-top")), "Must include back-to-top button"],
-        [Boolean(document.querySelector(".typed-text")), "Must include typing effect text"]
-      ];
-
-      tests.forEach(function(test) {
-        console.assert(test[0], test[1]);
-      });
-    })();
   </script>
 </body>
-</html>`;
-
-function assertEqual(actual, expected, message) {
-  if (actual !== expected) {
-    throw new Error(`${message}\nExpected: ${JSON.stringify(expected)}\nActual: ${JSON.stringify(actual)}`);
-  }
-}
-
-function runPreviewTests() {
-  assertEqual(staticHtml.trim().startsWith("<!doctype html>"), true, "Static HTML must start with doctype.");
-  assertEqual(staticHtml.includes("Unity Developer Portfolio"), true, "Static HTML must contain portfolio title.");
-  assertEqual((staticHtml.match(/class=\"card project-card/g) || []).length, 3, "Static HTML must contain exactly 3 project cards.");
-  assertEqual((staticHtml.match(/class=\"skill-card\"/g) || []).length >= 6, true, "Static HTML must contain at least 6 skill cards.");
-  assertEqual(staticHtml.includes("mailto:nguyenhuubang3172.work@gmail.com"), true, "Static HTML must contain an email link.");
-  assertEqual(staticHtml.includes("<script src="), false, "Static HTML must not load external scripts.");
-  assertEqual(staticHtml.includes("rel=\"stylesheet\""), false, "Static HTML must not load external CSS.");
-  assertEqual(staticHtml.includes("npm install"), false, "Static HTML must not require npm/build.");
-  assertEqual(staticHtml.includes("IntersectionObserver"), true, "Static HTML must include scroll reveal JS.");
-  assertEqual(staticHtml.includes("typed-text"), true, "Static HTML must include typing effect.");
-  assertEqual(staticHtml.includes("back-to-top"), true, "Static HTML must include back-to-top button.");
-  assertEqual(staticHtml.includes("id=\"store\""), true, "Static HTML must include a personal store section.");
-  assertEqual(staticHtml.includes("Visit My Store"), true, "Static HTML must include a store CTA button.");
-  assertEqual(staticHtml.includes("particle"), true, "Static HTML must include particle effects.");
-}
-
-runPreviewTests();
-
-export default function UnityDeveloperPortfolioStaticHtmlPreview() {
-  return (
-    <main className="min-h-screen bg-slate-950 p-0 text-white">
-      <iframe
-        title="Static portfolio preview"
-        srcDoc={staticHtml}
-        className="mx-auto h-[82vh] w-full max-w-6xl rounded-2xl border border-white/10 bg-white shadow-2xl"
-      />
-    </main>
-  );
-}
+</html>
